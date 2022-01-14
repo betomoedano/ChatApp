@@ -59,10 +59,10 @@ import React, {
       });
 
     const onSend = useCallback((messages = []) => {
-        // setMessages(previousMessages =>
-        //   GiftedChat.append(previousMessages, messages)
-        // );
-        setMessages([...messages, ...messages]);
+        setMessages(previousMessages =>
+          GiftedChat.append(previousMessages, messages)
+        );
+        // setMessages([...messages, ...messages]);
         const { _id, createdAt, text, user } = messages[0];    
         addDoc(collection(database, 'chats'), {
           _id,
@@ -73,21 +73,21 @@ import React, {
       }, []);
 
       return (
-        <>
-          {messages.map(message => (
-            <Text key={message._id}>{message.text}</Text>
-          ))}
-        </>
-        // <GiftedChat
-        //   messages={messages}
-        //   showAvatarForEveryMessage={false}
-        //   onSend={messages => onSend(messages)}
-        //   user={{
-        //     _id: auth?.currentUser?.email,
-        //     avatar: 'https://i.pravatar.cc/300'
-        //   }}
+        // <>
+        //   {messages.map(message => (
+        //     <Text key={message._id}>{message.text}</Text>
+        //   ))}
+        // </>
+        <GiftedChat
+          messages={messages}
+          showAvatarForEveryMessage={false}
+          onSend={messages => onSend(messages)}
+          user={{
+            _id: auth?.currentUser?.email,
+            avatar: 'https://i.pravatar.cc/300'
+          }}
 
-        // />
+        />
       );
 }
 
