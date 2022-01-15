@@ -7,6 +7,7 @@ import { auth } from './config/firebase';
 import Login from './screens/Login';
 import Signup from './screens/Signup';
 import Chat from './screens/Chat';
+import Home from './screens/Home';
 
 const Stack = createStackNavigator();
 const AuthenticatedUserContext = createContext({});
@@ -22,7 +23,8 @@ return (
 
 function ChatStack() {
   return (
-    <Stack.Navigator>
+    <Stack.Navigator defaultScreenOptions={Home}>
+      <Stack.Screen name='Home' component={Home} />
       <Stack.Screen name='Chat' component={Chat} />
     </Stack.Navigator>
   );
