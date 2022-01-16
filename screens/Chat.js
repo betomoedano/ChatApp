@@ -15,11 +15,13 @@ import React, {
   } from 'firebase/firestore';
   import { signOut } from 'firebase/auth';
   import { auth, database } from '../config/firebase';
+  import { useNavigation } from '@react-navigation/native';
 
 
-  export default function Chat({ navigation }) {
+  export default function Chat() {
 
     const [messages, setMessages] = useState([]);
+    const navigation = useNavigation();
 
   const onSignOut = () => {
       signOut(auth).catch(error => console.log('Error logging out: ', error));
@@ -56,7 +58,7 @@ import React, {
           );
         });
     return unsubscribe;
-      });
+      }, []);
 
     const onSend = useCallback((messages = []) => {
         setMessages(previousMessages =>

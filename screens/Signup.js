@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, View, Button, TextInput, Image, SafeAreaView, TouchableOpacity, StatusBar } from "react-native";
+import { StyleSheet, Text, View, Button, TextInput, Image, SafeAreaView, TouchableOpacity, StatusBar, Alert } from "react-native";
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../config/firebase';
 const backImage = require("../assets/backImage.png");
@@ -13,7 +13,7 @@ const onHandleSignup = () => {
     if (email !== '' && password !== '') {
   createUserWithEmailAndPassword(auth, email, password)
         .then(() => console.log('Signup success'))
-        .catch(err => console.log(`Login err: ${err}`));
+        .catch((err) => Alert.alert("Login error", err.message));
     }
   };
   
