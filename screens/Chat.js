@@ -16,6 +16,8 @@ import React, {
   import { signOut } from 'firebase/auth';
   import { auth, database } from '../config/firebase';
   import { useNavigation } from '@react-navigation/native';
+  import { AntDesign } from '@expo/vector-icons';
+  import colors from '../colors';
 
 
   export default function Chat() {
@@ -36,7 +38,7 @@ import React, {
               }}
               onPress={onSignOut}
             >
-              <Text>Logout</Text>
+              <AntDesign name="logout" size={24} color={colors.gray} style={{marginRight: 10}}/>
             </TouchableOpacity>
           )
         });
@@ -48,6 +50,7 @@ import React, {
         const q = query(collectionRef, orderBy('createdAt', 'desc'));
 
     const unsubscribe = onSnapshot(q, querySnapshot => {
+        console.log('querySnapshot unsusbscribe');
           setMessages(
             querySnapshot.docs.map(doc => ({
               _id: doc.data()._id,
@@ -83,12 +86,19 @@ import React, {
         <GiftedChat
           messages={messages}
           showAvatarForEveryMessage={false}
+          showUserAvatar={false}
           onSend={messages => onSend(messages)}
+          messagesContainerStyle={{
+            backgroundColor: '#fff'
+          }}
+          textInputStyle={{
+            backgroundColor: '#fff',
+            borderRadius: 20,
+          }}
           user={{
             _id: auth?.currentUser?.email,
             avatar: 'https://i.pravatar.cc/300'
           }}
-
         />
       );
 }
