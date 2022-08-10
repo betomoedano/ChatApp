@@ -1,5 +1,5 @@
 # ChatApp
-## chat app using react-native and firebase
+## Chat app using React Native Expo and Firebase
 
 ### check out the 👉🏼 [tutorial](https://www.youtube.com/watch?v=B6bKBiljKxU&t=323s) for more info
 
