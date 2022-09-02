@@ -1,5 +1,8 @@
-# ChatApp
-## Chat app using React Native Expo and Firebase
+# Chat App using React Native Expo and Firebase
+
+## How to clone
+
+See a video tutorial showing how to clone this repository 👉🏼 [https://www.youtube.com/watch?v=iHrTQDHq1WI&t=385s](https://www.youtube.com/watch?v=iHrTQDHq1WI&t=385s)
 
 ### check out the 👉🏼 [tutorial](https://www.youtube.com/watch?v=B6bKBiljKxU&t=323s) for more info
 
