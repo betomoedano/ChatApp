@@ -48,23 +48,23 @@ Subscribe to [my channel](https://youtube.com/c/BetoMoedano)
 Expo SDK and libreries are always updating their versions and deprecating others. before installing the libreries run.
 
 ```
-    yarn add expo@latest
+yarn add expo@latest
 ```
 
 Next you can run:
 
 ```
-    npx expo install
+npx expo install
 ```
 
-older versions of `react-native-gifted-chat` have a bug. make sure you have the latest.
+Older versions of `react-native-gifted-chat` have a some issues. make sure you have the latest.
 
 ```
-    npx expo install react-native-gifted-chat@latest
+npx expo install react-native-gifted-chat@latest
 ```
 
 Expo will show you what dependencies need to be updated. Install the dependencies expo suggest you. It is possible that there is cache and you have to run.
 
 ```
-    yarn start --reset-cache
+yarn start --reset-cache
 ```
