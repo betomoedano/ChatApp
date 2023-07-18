@@ -22,13 +22,14 @@ Add your firebase backend config in the `firebase.js` file
 
 ```
 const firebaseConfig = {
-  apiKey: Constants.manifest.extra.apiKey,
-  authDomain: Constants.manifest.extra.authDomain,
-  projectId: Constants.manifest.extra.projectId,
-  storageBucket: Constants.manifest.extra.storageBucket,
-  messagingSenderId: Constants.manifest.extra.messagingSenderId,
-  appId: Constants.manifest.extra.appId,
-  databaseURL: Constants.manifest.extra.databaseURL
+  apiKey: Constants.expoConfig.extra.apiKey,
+  authDomain: Constants.expoConfig.extra.authDomain,
+  projectId: Constants.expoConfig.extra.projectId,
+  storageBucket: Constants.expoConfig.extra.storageBucket,
+  messagingSenderId: Constants.expoConfig.extra.messagingSenderId,
+  appId: Constants.expoConfig.extra.appId,
+  databaseURL: Constants.expoConfig.extra.databaseURL,
+  //   @deprecated is deprecated Constants.manifest
 };
 ```
 
@@ -54,7 +55,7 @@ yarn add expo@latest
 Next you can run:
 
 ```
-npx expo install
+    npx expo install --fix
 ```
 
 Older versions of `react-native-gifted-chat` have a some issues. make sure you have the latest.
