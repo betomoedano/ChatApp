@@ -1,18 +1,29 @@
 import React, { useState } from "react";
 import { StyleSheet, Text, View, Button, TextInput, Image, SafeAreaView, TouchableOpacity, StatusBar, Alert } from "react-native";
 import { signInWithEmailAndPassword } from "firebase/auth";
-import { auth } from "../config/firebase";
+import { auth, database } from "../config/firebase";
 const backImage = require("../assets/backImage.png");
+import {
+  collection,
+  addDoc,
+} from 'firebase/firestore';
 
 export default function Login({ navigation }) {
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  function addActiveUser(user_id) {
+    console.log(user_id)
+    addDoc(collection(database, 'active_users'), {
+      user_id
+    });
+  }
+  // 
   const onHandleLogin = () => {
     if (email !== "" && password !== "") {
       signInWithEmailAndPassword(auth, email, password)
-        .then(() => console.log("Login success"))
+        .then((data) => addActiveUser(data.user.uid))
         .catch((err) => Alert.alert("Login error", err.message));
     }
   };
